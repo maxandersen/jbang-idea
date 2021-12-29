@@ -1,4 +1,4 @@
-package dev.jbang.intellij.plugins.jbang.run
+package dev.jbang.idea.run
 
 import com.intellij.execution.actions.ConfigurationContext
 import com.intellij.execution.actions.LazyRunConfigurationProducer
@@ -7,9 +7,9 @@ import com.intellij.execution.configurations.runConfigurationType
 import com.intellij.openapi.util.Ref
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiElement
-import dev.jbang.intellij.plugins.jbang.isJBangDirective
-import dev.jbang.intellij.plugins.jbang.isJbangScript
-import dev.jbang.intellij.plugins.jbang.isJbangScriptFile
+import dev.jbang.idea.isJBangDirective
+import dev.jbang.idea.isJbangScript
+import dev.jbang.idea.isJbangScriptFile
 import org.jetbrains.kotlin.psi.psiUtil.getTextWithLocation
 
 class JbangRunConfigurationProducer : LazyRunConfigurationProducer<JbangRunConfiguration>() {

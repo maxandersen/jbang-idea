@@ -11,34 +11,34 @@
     <depends optional="true" config-file="jbang-withGradle.xml">com.intellij.gradle</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <preloadingActivity implementation="dev.jbang.intellij.plugins.jbang.JbangJdkLoader"/>
-        <fileIconProvider implementation="dev.jbang.intellij.plugins.jbang.JbangIconProvider"/>
-        <configurationType implementation="dev.jbang.intellij.plugins.jbang.run.JbangConfigurationType"/>
-        <runConfigurationProducer implementation="dev.jbang.intellij.plugins.jbang.run.JbangRunConfigurationProducer"/>
+        <preloadingActivity implementation="dev.jbang.idea.JbangJdkLoader"/>
+        <fileIconProvider implementation="dev.jbang.idea.JbangIconProvider"/>
+        <configurationType implementation="dev.jbang.idea.run.JbangConfigurationType"/>
+        <runConfigurationProducer implementation="dev.jbang.idea.run.JbangRunConfigurationProducer"/>
         <fileType name="JSHELL" language="JShellLanguage" extensions="jsh"/>
-        <completion.contributor language="JAVA" implementationClass="dev.jbang.intellij.plugins.jbang.completion.JbangJavaCompletionContributor"/>
-        <runLineMarkerContributor language="JAVA" implementationClass="dev.jbang.intellij.plugins.jbang.run.JbangRunLineMarkerContributor"/>
+        <completion.contributor language="JAVA" implementationClass="dev.jbang.idea.completion.JbangJavaCompletionContributor"/>
+        <runLineMarkerContributor language="JAVA" implementationClass="dev.jbang.idea.run.JbangRunLineMarkerContributor"/>
         <notificationGroup id="JBang Failure" icon="/icons/jbang-16x16.png" displayType="STICKY_BALLOON" isLogByDefault="false"/>
         <notificationGroup id="JBang Success" icon="/icons/jbang-16x16.png" displayType="BALLOON" isLogByDefault="false"/>
     </extensions>
 
     <extensions defaultExtensionNs="JavaScript">
         <JsonSchema.ProviderFactory
-                implementation="dev.jbang.intellij.plugins.jbang.JbangCatalogJsonSchemaProviderFactory"/>
+                implementation="dev.jbang.idea.JbangCatalogJsonSchemaProviderFactory"/>
     </extensions>
 
     <actions>
-        <action class="dev.jbang.intellij.plugins.jbang.actions.CreateJbangScriptAction" id="CreateJbangScriptAction">
+        <action class="dev.jbang.idea.actions.CreateJbangScriptAction" id="CreateJbangScriptAction">
             <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFromTemplate"/>
         </action>
-        <action class="dev.jbang.intellij.plugins.jbang.actions.CreateFromTemplateAction"
+        <action class="dev.jbang.idea.actions.CreateFromTemplateAction"
                 id="CreateFromTemplateAction"
                 text="JBang Script from Template"
                 icon="/icons/jbang-16x16.png">
             <add-to-group group-id="NewGroup" anchor="after" relative-to-action="CreateJbangScriptAction"/>
         </action>
         <action id="jbang.SyncDependenciesAction"
-                class="dev.jbang.intellij.plugins.jbang.actions.SyncDependenciesAction"
+                class="dev.jbang.idea.actions.SyncDependenciesAction"
                 icon="/icons/jbang-16x16.png"
                 text="Sync JBang DEPS" description="Sync dependencies between JBang and Gradle">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>

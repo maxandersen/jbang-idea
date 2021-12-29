@@ -1,4 +1,4 @@
-package dev.jbang.intellij.plugins.jbang.actions
+package dev.jbang.idea.actions
 
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -20,11 +20,11 @@ import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.pom.java.LanguageLevel
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiFile
-import dev.jbang.intellij.plugins.jbang.JBANG_DECLARE
-import dev.jbang.intellij.plugins.jbang.JBangCli.resolveScriptDependencies
-import dev.jbang.intellij.plugins.jbang.JBangCli.resolveScriptInfo
-import dev.jbang.intellij.plugins.jbang.isJbangScript
-import dev.jbang.intellij.plugins.jbang.isJbangScriptFile
+import dev.jbang.idea.JBANG_DECLARE
+import dev.jbang.idea.JBangCli.resolveScriptDependencies
+import dev.jbang.idea.JBangCli.resolveScriptInfo
+import dev.jbang.idea.isJbangScript
+import dev.jbang.idea.isJbangScriptFile
 import org.jetbrains.kotlin.idea.core.util.toPsiFile
 import org.jetbrains.kotlin.idea.util.module
 import org.jetbrains.kotlin.idea.util.projectStructure.getModuleDir
