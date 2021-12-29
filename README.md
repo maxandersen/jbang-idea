@@ -1,5 +1,8 @@
 jbang-intellij-plugin
 ======================
+![Build](https://github.com/jbangdev/jbang-idea/workflows/Build/badge.svg)
+[![Version](https://img.shields.io/jetbrains/plugin/v/18257.svg)](https://plugins.jetbrains.com/plugin/18257)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/18257.svg)](https://plugins.jetbrains.com/plugin/18257)
 
 <!-- Plugin description -->
 **JBang plugin** is a plugin for IntelliJ IDEA to integrate [JBang](https://www.jbang.dev/).
