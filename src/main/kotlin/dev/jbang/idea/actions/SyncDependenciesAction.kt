@@ -23,8 +23,8 @@ import com.intellij.psi.PsiFile
 import dev.jbang.idea.JBANG_DECLARE
 import dev.jbang.idea.JBangCli.resolveScriptDependencies
 import dev.jbang.idea.JBangCli.resolveScriptInfo
-import dev.jbang.idea.isJbangScript
-import dev.jbang.idea.isJbangScriptFile
+import dev.jbang.idea.isJBangScript
+import dev.jbang.idea.isJBangScriptFile
 import org.jetbrains.kotlin.idea.core.util.toPsiFile
 import org.jetbrains.kotlin.idea.util.module
 import org.jetbrains.kotlin.idea.util.projectStructure.getModuleDir
@@ -40,8 +40,8 @@ class SyncDependenciesAction : AnAction() {
 
     override fun update(e: AnActionEvent) {
         val jbangScriptFile = e.getData(CommonDataKeys.PSI_FILE)
-        if (jbangScriptFile != null && isJbangScriptFile(jbangScriptFile.name)) {
-            if (isJbangScript(jbangScriptFile.text)) {
+        if (jbangScriptFile != null && isJBangScriptFile(jbangScriptFile.name)) {
+            if (isJBangScript(jbangScriptFile.text)) {
                 val project = e.getData(CommonDataKeys.PROJECT)!!
                 val buildGradle = LocalFileSystem.getInstance().findFileByPath(project.basePath + "/build.gradle")
                 if (buildGradle != null) {
@@ -63,8 +63,8 @@ class SyncDependenciesAction : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val jbangScriptFile = e.getData(CommonDataKeys.PSI_FILE)
-        if (jbangScriptFile != null && isJbangScriptFile(jbangScriptFile.name)) {
-            if (isJbangScript(jbangScriptFile.text)) {
+        if (jbangScriptFile != null && isJBangScriptFile(jbangScriptFile.name)) {
+            if (isJBangScript(jbangScriptFile.text)) {
                 val project = e.getData(CommonDataKeys.PROJECT)!!
                 val module = jbangScriptFile.module
                 if (module != null) {
@@ -272,7 +272,7 @@ class SyncDependenciesAction : AnAction() {
             val dependencies = resolveScriptDependencies(fullPath)
             val newDependencies = dependencies.filter { !it.contains(".jbang") }
             ApplicationManager.getApplication().runWriteAction {
-                replaceJbangModuleLib(module, newDependencies)
+                replaceJBangModuleLib(module, newDependencies)
                 val jbangNotificationGroup = NotificationGroupManager.getInstance().getNotificationGroup("JBang Success")
                 jbangNotificationGroup.createNotification("Succeed to sync DEPS", "${newDependencies.size} jars synced!", NotificationType.INFORMATION).notify(module.project)
             }
@@ -313,7 +313,7 @@ class SyncDependenciesAction : AnAction() {
         }
     }
 
-    private fun replaceJbangModuleLib(module: Module, newDependencies: List<String>) {
+    private fun replaceJBangModuleLib(module: Module, newDependencies: List<String>) {
         // remove jbang library
         val moduleRootManager = ModuleRootManager.getInstance(module)
         val modifiableModel = moduleRootManager.modifiableModel

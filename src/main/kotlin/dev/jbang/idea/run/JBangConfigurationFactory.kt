@@ -6,21 +6,21 @@ import com.intellij.execution.configurations.RunConfiguration
 import com.intellij.openapi.components.BaseState
 import com.intellij.openapi.project.Project
 import dev.jbang.idea.jbangIcon
-import dev.jbang.idea.run.JbangConfigurationType.Companion.ID
+import dev.jbang.idea.run.JBangConfigurationType.Companion.ID
 import javax.swing.Icon
 
-class JbangConfigurationFactory(type: ConfigurationType) : ConfigurationFactory(type) {
+class JBangConfigurationFactory(type: ConfigurationType) : ConfigurationFactory(type) {
 
     override fun getId(): String {
         return ID
     }
 
     override fun getOptionsClass(): Class<out BaseState> {
-        return JbangRunConfigurationOptions::class.java
+        return JBangRunConfigurationOptions::class.java
     }
 
     override fun createTemplateConfiguration(project: Project): RunConfiguration {
-        return JbangRunConfiguration(project, this, "JBang")
+        return JBangRunConfiguration(project, this, "JBang")
     }
 
     override fun getIcon(): Icon {
